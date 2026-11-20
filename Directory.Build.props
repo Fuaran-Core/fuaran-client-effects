@@ -1,0 +1,32 @@
+<Project>
+  <PropertyGroup>
+    <!-- Central package versions (Directory.Packages.props) for every project of this repository. -->
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors>$(WarningsAsErrors);FS0025</WarningsAsErrors>
+    <WarnOn>3390;$(WarnOn)</WarnOn>
+    <!-- Nullness on: the library's source is also compiled by its Fable consumers under THEIR properties, so it is
+         written to be clean with nullness checking on, which leaves it clean with it off. -->
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <!-- The version every package in this repository ships at. 0.1.0 is a DRAFT slot: untagged, unpublished and not
+         releasable by default. STABILITY.md heads the slot and records what it holds. -->
+    <Version>0.1.0</Version>
+    <Authors>Andrew J. Willshire</Authors>
+    <Company>Diametrical Ltd</Company>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <Copyright>Copyright 2026 Diametrical Ltd</Copyright>
+    <PackageProjectUrl>https://github.com/Fuaran-Core/fuaran-client-effects</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Fuaran-Core/fuaran-client-effects</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <!-- Where the Fuaran.Core.* pins restore from: the public registry, nuget.org. This repository has no nuget.config
+         and never reaches a local feed. -->
+    <FuaranRestorePath>public</FuaranRestorePath>
+  </PropertyGroup>
+  <!-- Fable source distribution: a packable project ships its source and project file under fable/ in the package, so
+       a Fable-compiled consumer compiles the package from source beside the lib/ assembly. -->
+  <ItemGroup Condition="'$(IsPackable)' == 'true' And '$(MSBuildProjectExtension)' == '.fsproj'">
+    <Content Include="$(MSBuildProjectFile)" PackagePath="fable\" />
+    <Content Include="*.fs" PackagePath="fable\" />
+  </ItemGroup>
+</Project>

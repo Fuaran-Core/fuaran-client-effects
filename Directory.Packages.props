@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+    <!-- One version property per producing repository: every Fuaran.Core.* pin rides this one, so the pins cannot drift
+         apart. Public packages on nuget.org; the restore path is declared public in Directory.Build.props. -->
+    <FuaranCoreVersion>0.44.1</FuaranCoreVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="FSharp.Core" Version="10.1.300" />
+    <!-- The decoder reads Core's JSON value; the library references this package and nothing else of Core's. -->
+    <PackageVersion Include="Fuaran.Core.Wire" Version="$(FuaranCoreVersion)" />
+    <!-- TEST-ONLY. -->
+    <PackageVersion Include="Expecto" Version="10.2.3" />
+  </ItemGroup>
+</Project>

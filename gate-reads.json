@@ -1,0 +1,54 @@
+{
+  "kind": "gateReads",
+  "_": "What this repository's gate reads and builds. The gate is verify.ps1, a pass-through to run.ps1: tool restore, a Fantomas check over src/ and tests/ (against .editorconfig and .fantomasignore), a build of the solution, the Expecto suite (which embeds its corpus copy and reads no file unless FUARAN_PROGRAM_SPEC_CORPUS is set) and a Fable compile of the library. The build reads the MSBuild props, global.json and the projects' sources; the pack-only README is read by the library project's item list.",
+  "reads": [
+    "verify.ps1",
+    "run.ps1",
+    "global.json",
+    ".config/dotnet-tools.json",
+    ".editorconfig",
+    ".fantomasignore",
+    "Directory.Build.props",
+    "Directory.Packages.props",
+    "Fuaran.ClientEffects.slnx",
+    "README.md",
+    "src/**",
+    "tests/**"
+  ],
+  "notRead": [
+    {
+      "path": "DECISIONS.md",
+      "reason": "the decision record; prose no stage opens"
+    },
+    {
+      "path": "STABILITY.md",
+      "reason": "the version record; prose no stage opens"
+    },
+    {
+      "path": "LICENSE",
+      "reason": "licence text; no stage opens it"
+    },
+    {
+      "path": "NOTICE",
+      "reason": "notice text; no stage opens it"
+    },
+    {
+      "path": ".github/**",
+      "reason": "the tag-triggered publish workflow; it runs on GitHub on a v* tag, never in the gate"
+    },
+    {
+      "path": ".gitignore",
+      "reason": "git configuration; no stage opens it"
+    },
+    {
+      "path": ".gitattributes",
+      "reason": "git configuration; no stage opens it"
+    }
+  ],
+  "builds": [
+    "Fuaran.ClientEffects.slnx",
+    "src/Fuaran.ClientEffects/Fuaran.ClientEffects.fsproj",
+    "tests/Fuaran.ClientEffects.Tests/Fuaran.ClientEffects.Tests.fsproj"
+  ],
+  "notBuilt": []
+}

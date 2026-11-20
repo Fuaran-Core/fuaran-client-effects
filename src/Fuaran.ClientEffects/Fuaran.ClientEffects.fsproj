@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Fuaran.ClientEffects: the client effect vocabulary. The effect type, its discriminator and its wire codec, and the
+    navigation target the Navigate arm carries. It references FSharp.Core and Core's wire package, which the decoder
+    reads JSON values through; it references no runtime and no UI language. Fable-clean: the source ships under fable/
+    in the package (Directory.Build.props).
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsPackable>true</IsPackable>
+    <PackageId>Fuaran.ClientEffects</PackageId>
+    <Description>Fuaran.ClientEffects: the client effect vocabulary, declared once. The effects a server decides and a client performs (clipboard, navigation, history, focus, download, file read, print, confirm), their discriminator and their wire codec, pinned by the Fuaran program specification's client-effect corpus. FSharp.Core and Fuaran.Core.Wire only; Fable-clean.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>fsharp;fable;fuaran;client-effects;wire</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientEffect.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" />
+    <PackageReference Include="Fuaran.Core.Wire" />
+  </ItemGroup>
+</Project>

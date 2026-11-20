@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The test host: the codec held to the program specification's client-effect corpus (every round-trip vector decodes
+    and re-encodes byte-identically, every reject vector is refused for its class), and the codec's own laws. Expecto;
+    `pwsh ./run.ps1` runs it. Setting FUARAN_PROGRAM_SPEC_CORPUS to a checkout's wire-fixtures directory adds the live
+    check that the embedded copy of the corpus is the manifest's family exactly.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CodecTests.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Fuaran.ClientEffects/Fuaran.ClientEffects.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" />
+    <PackageReference Include="Expecto" />
+  </ItemGroup>
+</Project>
