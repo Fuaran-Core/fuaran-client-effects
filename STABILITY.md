@@ -18,7 +18,7 @@ modules.
 A draft slot (untagged, unpublished) carries an additive change without moving its number; a change of a higher class
 than the slot already holds advances it.
 
-## 0.1.0 — DRAFT (untagged, unpublished)
+## 0.1.0 — released 2026-11-21 as `v0.1.0`
 
 The first version, cut by fuaran-core#718. It holds:
 
@@ -34,5 +34,4 @@ The first version, cut by fuaran-core#718. It holds:
 
 Dependencies: FSharp.Core 10.1.300, Fuaran.Core.Wire 0.44.1.
 
-Its first release is the operator's act, after the nuget.org Trusted Publishing policy for this repository's
-`publish-packages.yml` is registered.
+Released 2026-11-21 as `v0.1.0`, published to nuget.org through Trusted Publishing by `publish-packages.yml`.
