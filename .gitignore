@@ -1,0 +1,9 @@
+bin/
+obj/
+*.user
+.vs/
+.idea/
+.ionide/
+artifacts/
+fable_modules/
+node_modules/
